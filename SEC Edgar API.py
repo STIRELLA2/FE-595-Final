@@ -1,5 +1,6 @@
 pip install sec-api
 
+## Grab the URL to the 2020 10K for a given ticer
 from sec_api import QueryApi
 
 queryApi = QueryApi(api_key="d191139bb32063ab9166076e9b1aeba63695494ed678797194a79b5bd2b1d1d2")
@@ -17,6 +18,7 @@ filings = queryApi.get_filings(query)
 
 print(filings)
 
+## Take the URL to the 10K and extract section 1 Management Commentary
 from sec_api import ExtractorApi
 
 extractorApi = ExtractorApi("d191139bb32063ab9166076e9b1aeba63695494ed678797194a79b5bd2b1d1d2")

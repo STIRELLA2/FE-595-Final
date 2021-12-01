@@ -1,6 +1,7 @@
 flask
 nltk
 sec-api
-python-engineio==3.14.2 python-socketio[client]==4.6.0
+python-engineio==3.14.2 
+python-socketio[client]==4.6.0
 socketio
 sec_api

@@ -58,8 +58,7 @@ def flask_import():
   
   </title>
 </head>
-  <h2>Form</h2>
-  <form action="/text" method="post">
+    <form action="/text" method="post">
     Enter Your Ticker:<br>
     <input type="text" name="text_input" value="">
     <br>

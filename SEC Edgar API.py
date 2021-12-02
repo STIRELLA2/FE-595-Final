@@ -1,5 +1,7 @@
 pip install sec-api
 
+
+
 ## Grab the URL to the 2020 10K for a given ticer
 from sec_api import QueryApi
 
@@ -16,8 +18,6 @@ query = {
 
 filings = queryApi.get_filings(query)
 
-print(filings)
-
 ## Take the URL to the 10K and extract section 1 Management Commentary
 from sec_api import ExtractorApi
 
@@ -30,3 +30,9 @@ filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220
 section_text = extractorApi.get_section(filing_url, "1", "text")
 
 print(section_text)
+
+from Management Opportunities import SentimentIntensityAnalyzer
+analyzer=SentimentIntensityAnalyzer()
+def sentence=section_text
+score=analyzer.polarity_soces(sentence)
+print"{:-<60]} {}".format(sentence,str(score))

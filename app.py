@@ -87,8 +87,8 @@ filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220
 section_text = extractorApi.get_section(filing_url, "1", "text")
 
 print(section_text)
-pip install vaderSentiment
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 analyzer=SentimentIntensityAnalyzer()
 sentence=section_text
 score=analyzer.polarity_soces(sentence)

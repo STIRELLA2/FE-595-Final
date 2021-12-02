@@ -101,7 +101,7 @@ def flask_import():
   </html>
   """
 
-def generate_random_company():
+def CompanyInfo():
       return render_template(score, section_text)
   
 if __name__ == "__main__":

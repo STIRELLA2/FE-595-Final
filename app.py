@@ -38,13 +38,13 @@ filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220
 section_text = extractorApi.get_section(filing_url, "1", "text")
 
 def CompanyInfo():
-import nltk
-nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-sid=SentimentIntensityAnalyzer()
-sentence=section_text
-score=sid.polarity_scores(sentence)
-print(score)
+  import nltk
+  nltk.download('vader_lexicon')
+  from nltk.sentiment.vader import SentimentIntensityAnalyzer
+  sid=SentimentIntensityAnalyzer()
+  sentence=section_text
+  score=sid.polarity_scores(sentence)
+  print(score)
 
       return render_template({score}, {section_text})
 

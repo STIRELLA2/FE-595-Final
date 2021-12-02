@@ -10,6 +10,45 @@ from sec_api import XbrlApi
 from sec_api import ExtractorApi
 from sec_api import RenderApi
 
+## Grab the URL to the 2020 10K for a given ticker
+from sec_api import QueryApi
+
+queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+
+query = {
+  "query": { "query_string": { 
+      "query": "ticker:TRV AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
+    } },
+  "from": "0",
+  "size": "10",
+  "sort": [{ "filedAt": { "order": "desc" } }]
+}
+  
+
+filings = queryApi.get_filings(query)
+
+## Take the URL to the 10K and extract section 1 Management Commentary
+from sec_api import ExtractorApi
+
+extractorApi = ExtractorApi("bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+
+# 10-K filing
+filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/trv-12312019x10k.htm"
+
+# get the standardized and cleaned text of section 1A "Risk Factors"
+section_text = extractorApi.get_section(filing_url, "1", "text")
+
+print(section_text)
+
+
+import nltk
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+sid=SentimentIntensityAnalyzer()
+sentence=section_text
+score=sid.polarity_scores(sentence)
+print(score)
+
 
 app = Flask(__name__) # "__main__"
 
@@ -49,7 +88,7 @@ def flask_import():
     "Volume@tv-basicstudies"
   ],
   "container_id": "tradingview_1542b"
-}
+}print(section_text)
   );
   </script>
 </div>
@@ -59,45 +98,6 @@ def flask_import():
   </html>
   """
 
-## Grab the URL to the 2020 10K for a given ticer
-from sec_api import QueryApi
-
-queryApi = QueryApi(api_key="d191139bb32063ab9166076e9b1aeba63695494ed678797194a79b5bd2b1d1d2")
-
-query = {
-  "query": { "query_string": { 
-      "query": "ticker:TRV AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
-    } },
-  "from": "0",
-  "size": "10",
-  "sort": [{ "filedAt": { "order": "desc" } }]
-}
-
-filings = queryApi.get_filings(query)
-
-## Take the URL to the 10K and extract section 1 Management Commentary
-from sec_api import ExtractorApi
-
-extractorApi = ExtractorApi("d191139bb32063ab9166076e9b1aeba63695494ed678797194a79b5bd2b1d1d2")
-
-# 10-K filing
-filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/trv-12312019x10k.htm"
-
-# get the standardized and cleaned text of section 1A "Risk Factors"
-section_text = extractorApi.get_section(filing_url, "1", "text")
-
-print(section_text)
-
-
-import nltk
-nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-sid=SentimentIntensityAnalyzer()
-sentence=section_text
-score=sid.polarity_scores(sentence)
-print(score)
-
-  
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=3333)

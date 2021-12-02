@@ -48,7 +48,7 @@ score=sid.polarity_scores(sentence)
 app = Flask(__name__) # "__main__"
 
 @app.route('/<name>', methods=['GET', 'POST'])
-def home(score)
+def home(score):
   return render_template("Display.html",content=score)
 
 @app.route('/grp8', methods=['GET', 'POST'])

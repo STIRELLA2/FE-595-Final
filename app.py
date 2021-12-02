@@ -48,6 +48,8 @@ print(score)
 app = Flask(__name__) # "__main__"
 
 @app.route('/grp8', methods=['GET', 'POST'])
+def index():
+   return render_template("index.html")
 def flask_import():
   return """<html>
   <h1>FA595 Final Project<h1><br><br>

@@ -53,7 +53,8 @@ def flask_import():
 
   <h1>FA595 Final Project<h1><br><br>
 <h2>Group 8: Zemin Li, Sherri Putnam, Spencer Tirella</h2>
-  <title>FA595 Grp 8 Final Project: The below application is designed to accept a stock ticker, pull the company's 2020 10K filing from the SEC Edgar database, and return the sentiment analysis score for the company's comments in section 1A "Risk Factors" of the filing.
+<h3>he below application is designed to accept a stock ticker, pull the company's 2020 10K filing from the SEC Edgar database, and return the sentiment analysis score for the company's comments in section 1A "Risk Factors" of the filing.</h3>
+  <title>FA595 Grp 8 Final Project
   </title>
 </head>
     <form action="/text" method="post">

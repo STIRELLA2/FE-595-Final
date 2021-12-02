@@ -98,16 +98,11 @@ def flask_import():
 </p>
   </body>
   
-  <body>
-     <tr>
-       <th> section_text </th>
-       <td>  score  </td>
-    </tr>
- </body>
- 
   </html>
   """
 
-
+def generate_random_company():
+      return render_template(score, section_text)
+  
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=3333)

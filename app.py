@@ -54,13 +54,13 @@ app = Flask(__name__) # "__main__"
 
 
 @app.route('/grp8', methods=['GET', 'POST'])
-def score
-  return render_tempalte(score)
 def flask_import():
   return """<html>
   <h1>FA595 Final Project<h1><br><br>
 <h2>Group 8: Zemin Li, Sherri Putnam, Spencer Tirella</h2>
-  <title>FA595 Grp 8 Final Project</title>
+  <title>FA595 Grp 8 Final Project
+  
+  </title>
 </head>
   <body>
  <!-- TradingView Widget BEGIN -->
@@ -97,6 +97,19 @@ def flask_import():
 <!-- TradingView Widget END -->
 </p>
   </body>
+  
+  <!doctype html>
+  <table border = 1>
+    {% for key, value in result.items() %}
+
+    <tr>
+       <th> {{ section_text }} </th>
+       <td> {{ score }} </td>
+    </tr>
+
+    {% endfor %}
+ </table>
+ 
   </html>
   """
 

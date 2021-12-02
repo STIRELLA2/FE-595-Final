@@ -38,9 +38,6 @@ filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220
 # get the standardized and cleaned text of section 1A "Risk Factors"
 section_text = extractorApi.get_section(filing_url, "1", "text")
 
-print(section_text)
-
-
 import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -51,7 +48,6 @@ print(score)
 
 
 app = Flask(__name__) # "__main__"
-
 
 @app.route('/grp8', methods=['GET', 'POST'])
 def flask_import():
@@ -102,7 +98,7 @@ def flask_import():
   """
 
 def CompanyInfo():
-      return render_template(score, section_text)
+      return render_template({score}, {section_text})
   
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=3333)

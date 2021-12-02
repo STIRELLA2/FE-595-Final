@@ -98,17 +98,12 @@ def flask_import():
 </p>
   </body>
   
-  <!doctype html>
-  <table border = 1>
-    {% for key, value in result.items() %}
-
-    <tr>
-       <th> {{ section_text }} </th>
-       <td> {{ score }} </td>
+  <body>
+     <tr>
+       <th> section_text </th>
+       <td>  score  </td>
     </tr>
-
-    {% endfor %}
- </table>
+ </body>
  
   </html>
   """

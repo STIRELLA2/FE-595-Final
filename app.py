@@ -92,9 +92,9 @@ print(section_text)
 import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-analyzer=SentimentIntensityAnalyzer()
+sid=SentimentIntensityAnalyzer()
 sentence=section_text
-score=analyzer.polarity_soces(sentence)
+score=sid.polarity_scores(sentence)
 print(score)
 
   

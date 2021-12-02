@@ -88,7 +88,7 @@ section_text = extractorApi.get_section(filing_url, "1", "text")
 
 print(section_text)
 
-from Management Opportunities import SentimentIntensityAnalyzer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyzer=SentimentIntensityAnalyzer()
 def sentence=section_text
 score=analyzer.polarity_soces(sentence)

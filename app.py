@@ -43,7 +43,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sid=SentimentIntensityAnalyzer()
 sentence=section_text
 score=sid.polarity_scores(sentence)
-print(score)
+
 
 app = Flask(__name__) # "__main__"
 
@@ -66,6 +66,9 @@ def flask_import():
     <br>
     <input type="submit" value="Submit">
   </form>
+  
+  <p>{{content=score}}</p>
+  
 
   <body>
  <!-- TradingView Widget BEGIN -->

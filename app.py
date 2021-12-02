@@ -47,7 +47,7 @@ print(score)
 
 app = Flask(__name__) # "__main__"
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
    return render_template("index.html")
 

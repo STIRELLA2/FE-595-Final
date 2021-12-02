@@ -50,6 +50,17 @@ def CompanyInfo():
 app = Flask(__name__) # "__main__"
 
 @app.route('/grp8', methods=['GET', 'POST'])
+
+def CompanyInfo():
+  import nltk
+  nltk.download('vader_lexicon')
+  from nltk.sentiment.vader import SentimentIntensityAnalyzer
+  sid=SentimentIntensityAnalyzer()
+  sentence=section_text
+  score=sid.polarity_scores(sentence)
+  print(score)
+  return render_template(score=score)
+
 def flask_import():
   return """<html>
   <h1>FA595 Final Project<h1><br><br>

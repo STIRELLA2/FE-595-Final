@@ -100,6 +100,7 @@ def flask_import():
 </div>
 <!-- TradingView Widget END -->
 </p>
+{{score}}
   </body>
   
   </html>

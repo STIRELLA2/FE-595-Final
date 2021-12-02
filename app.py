@@ -88,6 +88,9 @@ section_text = extractorApi.get_section(filing_url, "1", "text")
 
 print(section_text)
 
+
+import nltk
+nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 analyzer=SentimentIntensityAnalyzer()
 sentence=section_text

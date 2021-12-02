@@ -9,10 +9,10 @@ from sec_api import FullTextSearchApi
 from sec_api import XbrlApi
 from sec_api import ExtractorApi
 from sec_api import RenderApi
+from sec_api import QueryApi
 
 def CompanyInfo():
 ## Grab the URL to the 2020 10K for a given ticker
-from sec_api import QueryApi
 
 queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
 

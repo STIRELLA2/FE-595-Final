@@ -64,7 +64,7 @@ def flask_import():
     <input type="submit" value="Submit">
   </form>
   
-  <p>{%score%}</p>
+  <tr>{{score}}</tr>
   
   <body>
  <!-- TradingView Widget BEGIN -->
@@ -100,7 +100,6 @@ def flask_import():
 </div>
 <!-- TradingView Widget END -->
 </p>
-{{score}}
   </body>
   </html>
   """

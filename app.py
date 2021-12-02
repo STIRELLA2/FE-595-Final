@@ -10,6 +10,7 @@ from sec_api import XbrlApi
 from sec_api import ExtractorApi
 from sec_api import RenderApi
 
+def CompanyInfo():
 ## Grab the URL to the 2020 10K for a given ticker
 from sec_api import QueryApi
 
@@ -46,6 +47,7 @@ sentence=section_text
 score=sid.polarity_scores(sentence)
 print(score)
 
+      return render_template({score}, {section_text})
 
 app = Flask(__name__) # "__main__"
 
@@ -97,8 +99,7 @@ def flask_import():
   </html>
   """
 
-def CompanyInfo():
-      return render_template({score}, {section_text})
+
   
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=3333)

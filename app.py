@@ -45,7 +45,7 @@ def CompanyInfo():
   sentence=section_text
   score=sid.polarity_scores(sentence)
   print(score)
-  return render_template({score}, {section_text})
+  return render_template(score)
 
 app = Flask(__name__) # "__main__"
 
@@ -58,6 +58,13 @@ def flask_import():
   
   </title>
 </head>
+  <h2>Form</h2>
+  <form action="/text" method="post">
+    Enter Your Ticker:<br>
+    <input type="text" name="text_input" value="">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
   <body>
  <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">

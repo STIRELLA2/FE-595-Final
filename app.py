@@ -64,14 +64,7 @@ def flask_import():
     <br>
     <input type="submit" value="Submit">
   </form>
-  <div id='foo'>
-    <br>
-    {% for comment in comments %}
-    <div class="row">
-      {{ comment }} 
-    </div>
-    {% endfor %}
-  </div>
+
   <body>
  <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">

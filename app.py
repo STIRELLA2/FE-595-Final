@@ -49,7 +49,7 @@ app = Flask(__name__) # "__main__"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-   return render_template("index.html")
+   return render_template("SEC Edgar API.py")
 
 @app.route('/grp8', methods=['GET', 'POST'])
 def flask_import():

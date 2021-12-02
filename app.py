@@ -88,7 +88,7 @@ def flask_import():
     "Volume@tv-basicstudies"
   ],
   "container_id": "tradingview_1542b"
-}print(section_text)
+}
   );
   </script>
 </div>

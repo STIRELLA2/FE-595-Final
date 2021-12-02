@@ -45,7 +45,7 @@ def CompanyInfo():
   sentence=section_text
   score=sid.polarity_scores(sentence)
   print(score)
-  return render_template(score)
+  return render_template(score=score)
 
 app = Flask(__name__) # "__main__"
 

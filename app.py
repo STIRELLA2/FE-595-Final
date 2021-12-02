@@ -90,9 +90,9 @@ print(section_text)
 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyzer=SentimentIntensityAnalyzer()
-def sentence=section_text
+sentence=section_text
 score=analyzer.polarity_soces(sentence)
-print"{:-<60]} {}".format(sentence,str(score))
+print(score)
 
   
 

@@ -100,7 +100,7 @@ def sec():
   extractorApi = ExtractorApi("bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
 
 # 10-K filing
-  filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/trv-12312019x10k.htm"
+  filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/"+load+"-12312019x10k.htm"
 
 # get the standardized and cleaned text of section 1A "Risk Factors"
   section_text = extractorApi.get_section(filing_url, "1A", "text")

@@ -76,7 +76,8 @@ def before():
 @app.route('/ticker', methods=['GET', 'POST'])
 def sec():
   tickerfromuser={'string':request.json['string']}
-  tickerfromuser2=json.dumps(tickerfromuser)
+  a=json.dumps(tickerfromuser['string'])
+  load = a.strip('"')
   
   ## Grab the URL to the 2020 10K for a given ticker
   from sec_api import QueryApi
@@ -84,7 +85,7 @@ def sec():
 
   query = {
    "query": { "query_string": { 
-        "query": "ticker:tickerfromuser2 AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
+        "query": "ticker:load AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
      } },
     "from": "0",
     "size": "10",

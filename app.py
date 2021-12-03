@@ -75,41 +75,41 @@ def before():
 
 @app.route('/ticker', methods=['GET', 'POST'])
 def sec():
-tickerfromuser={'string':request.json['string']}
-tickerfromuser2=json.dumps(tickerfromuser)
+  tickerfromuser={'string':request.json['string']}
+  tickerfromuser2=json.dumps(tickerfromuser)
   
-## Grab the URL to the 2020 10K for a given ticker
-from sec_api import QueryApi
-queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+  ## Grab the URL to the 2020 10K for a given ticker
+  from sec_api import QueryApi
+  queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
 
-query = {
-  "query": { "query_string": { 
-      "query": "ticker:"tickerfromuser2 "AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
-    } },
-  "from": "0",
-  "size": "10",
-  "sort": [{ "filedAt": { "order": "desc" } }]
-  }
+  query = {
+   "query": { "query_string": { 
+        "query": "ticker:"tickerfromuser2 "AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
+     } },
+    "from": "0",
+    "size": "10",
+    "sort": [{ "filedAt": { "order": "desc" } }]
+    }
   
-filings = queryApi.get_filings(query)
+  filings = queryApi.get_filings(query)
 
 ## Take the URL to the 10K and extract section 1 Management Commentary
-from sec_api import ExtractorApi
+  from sec_api import ExtractorApi
 
-extractorApi = ExtractorApi("bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+  extractorApi = ExtractorApi("bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
 
 # 10-K filing
-filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/trv-12312019x10k.htm"
+  filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/trv-12312019x10k.htm"
 
 # get the standardized and cleaned text of section 1A "Risk Factors"
-section_text = extractorApi.get_section(filing_url, "1A", "text")
+  section_text = extractorApi.get_section(filing_url, "1A", "text")
 
-import nltk
-nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-sid=SentimentIntensityAnalyzer()
-sentence=section_text
-score=sid.polarity_scores(sentence)
+  import nltk
+  nltk.download('vader_lexicon')
+  from nltk.sentiment.vader import SentimentIntensityAnalyzer
+  sid=SentimentIntensityAnalyzer()
+  sentence=section_text
+  score=sid.polarity_scores(sentence)
 
     return jsonify({'':score})
 

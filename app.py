@@ -75,14 +75,14 @@ def before():
 
 @app.route('/ticker', methods=['GET', 'POST'])
 def sec():
-  tickerfromuser={'string':request.json['string']}
-  tickerfromuser2=json.dumps(tickerfromuser)
+tickerfromuser={'string':request.json['string']}
+tickerfromuser2=json.dumps(tickerfromuser)
   
-  ## Grab the URL to the 2020 10K for a given ticker
-  from sec_api import QueryApi
-  queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+## Grab the URL to the 2020 10K for a given ticker
+from sec_api import QueryApi
+queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
 
-  query = {
+query = {
   "query": { "query_string": { 
       "query": "ticker:"tickerfromuser2 "AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
     } },

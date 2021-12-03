@@ -111,7 +111,7 @@ def sec():
   sentence=section_text
   score=sid.polarity_scores(sentence)
   
-  return jsonify({'score':score},{'section':filings})
+  return jsonify({'ticker':tickerfromuser},{'score':score},{'section':filings})
 
 
 #Error Handling

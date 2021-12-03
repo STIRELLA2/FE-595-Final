@@ -110,8 +110,8 @@ def sec():
   sid=SentimentIntensityAnalyzer()
   sentence=section_text
   score=sid.polarity_scores(sentence)
-
-    return jsonify({'':score})
+  
+  return jsonify({'':score})
 
 #Error Handling
 @app.errorhandler(404)

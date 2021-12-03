@@ -81,7 +81,7 @@ def sec():
   
   ## Grab the URL to the 2020 10K for a given ticker
   from sec_api import QueryApi
-  queryApi = QueryApi(api_key="bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+  queryApi = QueryApi(api_key="5189cf8bf3e1702d1aea748a2a06852e473d2abbd7b8ce6bd0d11b7f354565cf")
 
   query = {
    "query": { "query_string": { 
@@ -97,7 +97,7 @@ def sec():
 ## Take the URL to the 10K and extract section 1 Management Commentary
   from sec_api import ExtractorApi
 
-  extractorApi = ExtractorApi("bddda2de3ae47b101a2c2a2a94c09591ab98481b5a2fe1a7fda21ab0c14809f6")
+  extractorApi = ExtractorApi("5189cf8bf3e1702d1aea748a2a06852e473d2abbd7b8ce6bd0d11b7f354565cf")
 
 # 10-K filing
   filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/"+load+"-12312019x10k.htm"

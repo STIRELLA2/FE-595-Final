@@ -49,7 +49,9 @@ app = Flask(__name__) # "__main__"
 
 @app.route('/grp8', methods=['GET', 'POST'])
 def flask_import():
-  return """<html>
+  
+  
+  return f"""<html>
 
   <h1>FA595 Final Project<h1><br><br>
 <h2>Group 8: Zemin Li, Sherri Putnam, Spencer Tirella</h2>
@@ -67,7 +69,7 @@ def flask_import():
   
 ## How do i print the variable 'score' from line 45 in this section of the html?
 
-  <tr>{{score}}</tr>
+  <tr>{score}</tr>
   
   
   

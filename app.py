@@ -84,7 +84,7 @@ def sec():
 
   query = {
    "query": { "query_string": { 
-        "query": "ticker:"tickerfromuser2 "AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
+        "query": "ticker:"tickerfromuser2"AND filedAt:{2020-01-01 TO 2020-12-31} AND formType:\"10-k\"" 
      } },
     "from": "0",
     "size": "10",

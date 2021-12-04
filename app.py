@@ -94,13 +94,16 @@ def sec():
   
   filings = queryApi.get_filings(query)
 
+  for doc in filings['filings']:
+    filingurl=(doc['linkToFilingDetails'])
+    
 ## Take the URL to the 10K and extract section 1 Management Commentary
   from sec_api import ExtractorApi
 
   extractorApi = ExtractorApi("5189cf8bf3e1702d1aea748a2a06852e473d2abbd7b8ce6bd0d11b7f354565cf")
 
 # 10-K filing
-  filing_url = "https://www.sec.gov/ix?doc=/Archives/edgar/data/86312/000008631220000011/"+load+"-12312019x10k.htm"
+  filing_url = filingurl
 
 # get the standardized and cleaned text of section 1A "Risk Factors"
   section_text = extractorApi.get_section(filing_url, "1A", "text")
